@@ -8,9 +8,9 @@ class TestExercice1(unittest.TestCase):
 	
 	#Tests Nombres Plus Grands
 	def test_NPG(self):
-		self.assertEqual(self.exercice1.TroisGrandNombre([1,2,3,4,5,6]), [4,5,6])
-		self.assertEqual(self.exercice1.TroisGrandNombre([0,1,1,2,3,4,5,6,6]), [5,6,6])
-		self.assertEqual(self.exercice1.TroisGrandNombre([-99,1,0,-1]), [-1,0,1])
+		self.assertEqual(self.exercice1.TroisGrandNombre([1,2,3,4,5,6]), [6,5,4])
+		self.assertEqual(self.exercice1.TroisGrandNombre([0,1,1,2,3,4,5,6,6]), [6,6,5])
+		self.assertEqual(self.exercice1.TroisGrandNombre([-99,1,0,-1]), [1,0,-1])
 	
 	#Tests Premier ou non
 	def test_PON(self):
