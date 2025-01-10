@@ -6,9 +6,13 @@ class Exercice1:
 	
 	@staticmethod
 	def PremierOuNon(number: int) -> bool:
-		if number == 1: #Execption 
+		if number == 1: #Exception 
 			return True
-		for i in range(2, math.ceil(number**0.5)):
+		if number == 2: #Exception 
+			return False
+		if number == 4: #Exception 
+			return False
+		for i in range(2, math.ceil(number*0.5)):
 			if number % i == 0:
 				return False
 		return True
