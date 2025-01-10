@@ -29,7 +29,7 @@ class TestExercice1(unittest.TestCase):
 		self.assertTrue(self.exercice1.ArithmeOuPas([1,2,3,4,5,6]))
 		self.assertTrue(self.exercice1.ArithmeOuPas([1,6,11,16]))
 		self.assertFalse(self.exercice1.ArithmeOuPas([1,3,3,4,5,6]))
-		self.assertTrue(self.exercice1.ArithmeOuPas([2,4,8,16,32]))
+		self.assertFalse(self.exercice1.ArithmeOuPas([2,4,8,16,32]))
 
 if __name__ == '__main__':
     unittest.main()

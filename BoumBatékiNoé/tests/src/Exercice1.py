@@ -1,22 +1,26 @@
 import math
 class Exercice1:
 	@staticmethod
-	def TroisGrandNombre(numbers: list[int]) -> list[int]:
-		return sorted(numbers, reverse=True)[:3]
+	def TroisGrandNombre(x: list[int]) -> list[int]:
+		return sorted(x, reverse=True)[:3]
 	
 	@staticmethod
-	def PremierOuNon(number: int) -> bool:
-		if number == 1: #Exception 
+	def PremierOuNon(x: int) -> bool:
+		if x == 1: #Exception 
 			return True
-		if number == 2: #Exception 
+		if x == 2: #Exception 
 			return False
-		if number == 4: #Exception 
+		if x == 4: #Exception 
 			return False
-		for i in range(2, math.ceil(number*0.5)):
-			if number % i == 0:
+		for i in range(2, math.ceil(x*0.5)):
+			if x % i == 0:
 				return False
 		return True
 	
 	@staticmethod
-	def ArithmeOuPas(numbers: list[int]) -> bool:
-		pass
+	def ArithmeOuPas(x: list[int]) -> bool:
+		diff = x[1] - x[0]
+		for i in range(1, len(x)):
+			if x[i] - x[i - 1] != diff:
+				return False
+		return True
