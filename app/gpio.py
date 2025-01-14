@@ -6,7 +6,9 @@ from typing import Any
 class GPIO :
     
     def __init__(self, pin):
-        pass
+        self.num = pin
+        self.mode = None
+        self.value = None
     
     def setmode(self, mode):
         pass
