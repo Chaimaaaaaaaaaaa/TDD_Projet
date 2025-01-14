@@ -1,8 +1,5 @@
 
 
-from typing import Any
-
-
 class GPIO :
     
     def __init__(self, pin):
@@ -11,12 +8,14 @@ class GPIO :
         self.value = None
     
     def setmode(self, mode):
-        pass
+        if mode == "output" or mode == "input":
+            self.mode = mode
+        else:
+            raise ValueError("Invalid mode")
     
     def write(self, value):
-        pass
+        self.value = value 
     
     def read(self,):
-        pass
-    
+        return self.value
     
