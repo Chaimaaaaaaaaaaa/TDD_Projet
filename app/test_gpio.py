@@ -7,6 +7,20 @@ class TestGPIO(unittest.TestCase):
         self.assertEqual(gpio.num, 1)
         self.assertEqual(gpio.mode, None)
         self.assertEqual(gpio.value, None)
+    
+    def test_gpio_setmode(self):
+        gpio = GPIO(1)
+        gpio.setmode("output")
+        self.assertEqual(gpio.mode, "output")
+        gpio.setmode("input")
+        self.assertEqual(gpio.mode, "input")
+            
+    def test_gpio_write_read(self):
+        gpio = GPIO(1)
+        gpio.write(1)
+        self.assertEqual(gpio.value, 1)
+        self.assertEqual(gpio.read(), 1)
+        
 
 if __name__ == '__main__':
     unittest.main()
