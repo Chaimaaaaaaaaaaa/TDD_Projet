@@ -21,7 +21,7 @@ class TestMPL115A2(unittest.TestCase):
 
         sensor = MPL115A2()
         data = sensor.read_data()
-
+        
         self.assertEqual(data['pressure'], 0x0080)
         self.assertEqual(data['temperature'], 0x0040)
 
