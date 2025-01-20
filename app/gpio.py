@@ -16,9 +16,16 @@ class GPIO :
     def getmode(self):  
         return self.mode
     
-    def write(self, value):
-        self.value = value 
+    def write(self, value): 
+        if self.mode == "input":
+            raise ValueError("Pin is not configured as output.")
+        else:
+            self.value = value 
+        
     
     def read(self,):
-        return self.value
+        if self.mode == "output":
+            raise ValueError("Pin is not configured as input.")
+        else:
+            return self.value
     
