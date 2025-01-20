@@ -31,9 +31,15 @@ class TestMPL115A2(unittest.TestCase):
     @patch('smbus2.SMBus')
     def test_write_register(self, MockSMBus):
 
+        mock_bus = MockSMBus.return_value
+        sensor = MPL115A2()
+
         register = 0x12
         value = 0x55
         sensor.write_register(register, value)
+
+        mock_bus.write_byte_data.assert_called_with(0x60, register, value)
+
 
 if __name__ == '__main__':
     unittest.main()
