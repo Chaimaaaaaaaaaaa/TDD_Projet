@@ -21,4 +21,4 @@ class MPL115A2:
         return {'pressure': pressure, 'temperature': temperature}
 
     def write_register(self, register, value):
-        pass
+        self.bus.write_byte_data(self.address, register, value)

@@ -21,7 +21,10 @@ class TestMPL115A2(unittest.TestCase):
 
         sensor = MPL115A2()
         data = sensor.read_data()
-        
+
+        mock_bus.read_word_data.assert_any_call(0x60, 0x00) 
+        mock_bus.read_word_data.assert_any_call(0x60, 0x02) 
+
         self.assertEqual(data['pressure'], 0x0080)
         self.assertEqual(data['temperature'], 0x0040)
 
