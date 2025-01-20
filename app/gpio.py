@@ -12,6 +12,9 @@ class GPIO :
             self.mode = mode
         else:
             raise ValueError("Invalid mode")
+        
+    def getmode(self):  
+        return self.mode
     
     def write(self, value):
         self.value = value 
