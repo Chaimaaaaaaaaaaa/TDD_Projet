@@ -14,6 +14,8 @@ class TestGPIO(unittest.TestCase):
         self.assertEqual(gpio.mode, "output")
         gpio.setmode("input")
         self.assertEqual(gpio.mode, "input")
+        with self.assertRaises(ValueError):
+            gpio.setmode("hello")
             
     def test_gpio_write_read(self):
         gpio = GPIO(1)
