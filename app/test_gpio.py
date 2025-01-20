@@ -22,9 +22,24 @@ class TestGPIO(unittest.TestCase):
             
     def test_gpio_write_read(self):
         gpio = GPIO(1)
+        gpio.setmode("output")
         gpio.write(1)
         self.assertEqual(gpio.value, 1)
-        self.assertEqual(gpio.read(), 1)
+        
+        gpio_1 = GPIO(2)
+        gpio_1.setmode("input")
+        gpio_1.value = 10
+        self.assertEqual(gpio_1.read(), 10)
+        
+        gpio_in = GPIO(3)
+        gpio_in.setmode("input")
+        with self.assertRaises(ValueError):
+            gpio_in.write(1)
+            
+        gpio_out = GPIO(4)
+        gpio_out.setmode("output")
+        with self.assertRaises(ValueError):
+            gpio_out.read()
         
 
 if __name__ == '__main__':
