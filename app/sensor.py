@@ -21,7 +21,13 @@ class MPL115A2:
         self.c12 = ((data[6] << 8 | data[7]) >> 2) / 4194304.0
 
     def read_raw_data(self):
-        pass
+        self.bus.write_byte_data(self.address, 0x12, 0x00)
+        sleep(0.003)
+
+        data = self.bus.read_i2c_block_data(self.address, 0x00, 4)
+        raw_pressure = (data[0] << 8 | data[1]) >> 6
+        raw_temperature = (data[2] << 8 | data[3]) >> 6
+        return raw_pressure, raw_temperature
 
     def get_pressure_temperature(self):
         pass
