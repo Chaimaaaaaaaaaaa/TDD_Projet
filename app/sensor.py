@@ -20,5 +20,8 @@ class MPL115A2:
         self.b2 = (data[4] << 8 | data[5]) / 16384.0
         self.c12 = ((data[6] << 8 | data[7]) >> 2) / 4194304.0
 
+    def read_raw_data(self):
+        pass
+
     def get_pressure_temperature(self):
         pass

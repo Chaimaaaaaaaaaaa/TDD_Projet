@@ -18,6 +18,14 @@ class TestMPL115A2(unittest.TestCase):
         self.sensor.read_coefficients()
         self.mock_bus.read_i2c_block_data.assert_called_with(self.sensor.address, 0x04, 8)
 
+    def test_read_raw_data(self):
+        #Simulation des données lues pour la pression et la température
+        self.mock_bus.read_i2c_block_data.return_value = [0x10, 0x20, 0x30, 0x40]
+
+        raw_pressure, raw_temperature = self.sensor.read_raw_data()
+
+        self.mock_bus.write_byte_data.assert_called_with(self.sensor.address, 0x12, 0x00)
+        self.mock_bus.read_i2c_block_data.assert_called_with(self.sensor.address, 0x00, 4)
 
     def test_get_pressure_temperature(self):
         self.mock_bus.read_i2c_block_data.return_value = [0x10, 0x20, 0x30, 0x40]
